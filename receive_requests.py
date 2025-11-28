@@ -769,8 +769,22 @@ async def process_request(data: dict):
     overall_results: list[dict] = []
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+
+        browser = await p.chromium.launch(
+            headless=True,
+            args=[
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-dev-shm-usage",
+                "--disable-gpu",
+                "--disable-software-rasterizer",
+                "--no-zygote",
+                "--single-process"
+            ]
+        )
+
         page = await browser.new_page()
+
 
         while (
             current_url
