@@ -1,3 +1,12 @@
+---
+title: "LLM Quiz Solver"
+emoji: "🧠"
+colorFrom: "blue"
+colorTo: "purple"
+sdk: "docker"
+pinned: false
+---
+
 # LLM Quiz Solver API (FastAPI + Playwright + OpenAI GPT-5)
 
 This Hugging Face Space exposes a `/receive_requests` endpoint that:
@@ -16,8 +25,8 @@ This Hugging Face Space exposes a `/receive_requests` endpoint that:
 uvicorn receive_requests:app --reload --host 0.0.0.0 --port 8000
 
 ## Environment variables (set in Hugging Face → Settings → Variables & Secrets)
-OPENAI_API_KEY  = Your OpenAI key
-SECRET_KEY      = Any secret string used by incoming requests
+OPENAI_API_KEY  = Your OpenAI key  
+SECRET_KEY      = Any secret string used by incoming requests  
 OPENAI_MODEL    = gpt-5.1 (or any supported model)
 
 ## API Endpoint
@@ -36,6 +45,6 @@ The worker runs in background and automatically:
 - Scrapes & extracts data
 - Processes files (PDF/CSV/XLSX/JSON/images/audio)
 - Sends structured context to GPT-5
-- Builds final answer
+- Builds the final answer
 - Posts the answer to the quiz's submit URL
 - Follows chained quiz URLs until completion
